@@ -1,7 +1,11 @@
+//  | ## Index ##
+//  | Monitordraw - Draws the graphs on the monitor div
+//  | 
+
 var monitorOn = false;
 
-function monitorDraw(that, type) {
-	if (monitorOn === true) {
+function monitorDraw(that, type) { // 'That' is only used for console logs by the way.
+	if (monitorOn === true) { // Can't display anything without the monitor being on.
 		if (type === 'alt') {
 			$("#monitor").html('<div id="chart_div_alt"/>');
 			console.log(type, 'type chart div created');
@@ -282,6 +286,27 @@ function monitorDraw(that, type) {
 					}
 				}, "chart_div_vel");
 			console.log(type, 'type chart running.');
-		}
+		};
+		if (type === 'tme') {
+			$("#monitor").html('<div id="chart_div_tme"/>');
+			console.log(type, 'type chart div created');
+			initKSPWAPIGraph("pe=o.timeToPe&ap=o.timeToAp&met=v.missionTime", function (rawData, d) {
+					rawData.push([d.met, d.pe, d.ap]);
+				}, [
+					['Mission Time', 'Time to Periapsis', 'Time to Apoapsis']
+				], {
+					title: 'Time to Periapsis and Apoapsis',
+					vAxis: {
+						title: 'Time (s)'
+					},
+					hAxis: {
+						title: 'Mission Time (s)'
+					},
+					legend: {
+						position: 'bottom'
+					}
+				}, "chart_div_tme");
+			console.log(type, 'type chart running.');
+		};
 	};
 }

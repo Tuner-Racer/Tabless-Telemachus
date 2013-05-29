@@ -72,6 +72,8 @@ textarea {
     height: 100%;
 }
 
+/* ButtonContainer > Buttons > Actual Buttons. */
+
 #buttonContainer {
     padding: 0px 15px 0px 15px;
     margin-left: 0px;
@@ -87,11 +89,34 @@ textarea {
     float: left;
 }
 
+button {
+    background-color: #f7f7f7;
+}
+
+button:hover {
+    -webkit-box-shadow: inset 0px 0px 3px 5px rgba(0, 0, 0, .1) !important;
+box-shadow: inset 0px 0px 3px 5px rgba(0, 0, 0, .1) !important;
+    background-color: #e6e6e6;
+}
+
+button:active {
+    position:relative;
+    top:1px;
+}
+
+
 #buttons button, #monitorStatus{
+    border: 0px;
+    -webkit-box-shadow: inset 0px 0px 3px 5px rgba(0, 0, 0, .08);
+    box-shadow: inset 0px 0px 3px 5px rgba(0, 0, 0, .08);
+    padding: 0px;
+    margin-top: 5px;
     height: 2em;
     width: 100%;
     float: left;
 }
+
+/* Monitor status button */
 
 #monitorStatus{
     vertical-align: middle;
@@ -100,17 +125,20 @@ textarea {
     height: 32px;
     line-height: 2em;
     padding: 1px;
-    margin: 2px 2px 1px 1px;
 }
+
+/* Button States */
 
 .statusOn {
     height: 2em;
     width: 100%;
-    background-color: green;
+    background-color: #71ea2f;
+    -webkit-box-shadow: 01px 01px 25px 2px #66e820 !important;
+    box-shadow: 01px 01px 25px 2px #66e820 !important;
 }
 
 .statusOff{
-    background-color: red;
+    background-color: #f7f7f7;
     height: 2em;
     width: 100%;
 }
@@ -120,6 +148,8 @@ textarea {
     height: 100%;
     background-color: black;
 }
+
+/* Fix the size of the graphs being only something like 200px tall */
 
 #monitor > div {
     height: 100%;
