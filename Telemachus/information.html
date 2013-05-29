@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="normalize.min.css">
+        <link rel="stylesheet" href="information.css">
+
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script src="plugins.js"></script>
+        <script src="main.js"></script>
+        <script src="modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>        
+        <div id="container">
+            <div id="buttonContainer">
+                <div id="buttons">
+                    <button onclick="monitorDraw(this, 'alt');">ALT</button>
+                    <button onclick="monitorDraw(this, 'aap');">AAP</button>
+                    <button onclick="monitorDraw(this, 'den');">DEN</button>
+                    <button onclick="monitorDraw(this, 'dyp');">DYP</button>
+                    <button onclick="monitorDraw(this, 'gfr');">GFR</button>
+                    <button onclick="monitorDraw(this, 'grv');">GRV</button>
+                    <button onclick="monitorDraw(this, 'inc');">INC</button>
+                    <button onclick="monitorDraw(this, 'prs');">PRS</button>
+                    <button onclick="monitorDraw(this, 'tmp');">TMP</button>
+                    <button onclick="monitorDraw(this, 'tme');">TME</button>
+                    <button onclick="monitorDraw(this, 'vel');">VEL</button>
+                    <button onclick="monitorDraw(this, 'ful');">FUL</button>
+                    <button onclick="monitorDraw(this, 'elc');">ELC</button>
+                    <button onclick="monitorDraw(this, 'orb');">ORB</button>
+                    <button onclick="monitorDraw(this, 'sur');">SUR</button>
+                    <button onclick="monitorDraw(this, 'map');">MAP</button>
+                    <button onclick="monitorDraw(this, 'sas');">SAS</button>
+                    <button id="toggleOn" onclick="monitorToggle(this);">MTG</button>
+                    <div id="monitorStatus" class="statusOff">OFF</div>
+                </div>
+            </div>
+            <div id="monitor"><div id="blank" /></div>
+        </div>
+    </body>
+</html>
