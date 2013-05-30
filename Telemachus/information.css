@@ -79,7 +79,7 @@ textarea {
     padding: 5px 15px 0px 15px;
     margin-bottom: 0px;
     background-color: #636363;
-    height: 5%;
+    height: 4.5%;
 }
 
 #buttons{
@@ -87,11 +87,13 @@ textarea {
 }
 
 button {
+    outline: 3px outset #cdcdcd;
     background-color: #f7f7f7;
 }
 
 button:hover {
-    background-color: #e6e6e6;
+    outline: 3px inset #cdcdcd;
+    background-color: #cdcdcd;
 }
 
 button:active {
@@ -99,16 +101,20 @@ button:active {
     top:1px;
 }
 
+.statusOn:hover {
+    outline: 3px outset #ffcf47;
+    background-color: #ffd869;
+}
+
 
 #buttons button, #monitorStatus{
     vertical-align: middle;
     text-align: center;
-    font-family: 'Droid Sans Mono', sans-serif;
+    font-family: 'Droid Sans Mono';
     border: 0px;
     padding: 10px;
     margin-top: 5px;
-    margin-right: 5px;
-    width: 20px
+    margin-right: 10px;
     float: left;
     line-height: 1em;
 }
@@ -127,12 +133,14 @@ button:active {
 /* Button States */
 
 .statusOn {
-    background-color: #ffd358;
-    -webkit-box-shadow: 01px 01px 25px 2px #ffdc7a !important;
-    box-shadow: 01px 01px 25px 2px #ffdc7a !important;
+    outline: 3px outset #ffcf47;
+    background-color: #ffd869;
+    -webkit-box-shadow: 01px 01px 25px 2px #ffd869 !important;
+    box-shadow: 01px 01px 25px 2px #ffd869 !important;
 }
 
 .pwrOn {
+    outline: 3px outset #71ea2f;
     height: 2em;
     background-color: #71ea2f;
     -webkit-box-shadow: 01px 01px 25px 2px #66e820 !important;
@@ -140,6 +148,7 @@ button:active {
 }
 
 .pwrOff {
+    outline: 3px outset #cdcdcd;
     background-color: #f7f7f7;
     height: 2em;
 }
