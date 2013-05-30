@@ -102,8 +102,8 @@ button:active {
 }
 
 .statusOn:hover {
-    outline: 3px outset #ffcf47;
-    background-color: #ffd869;
+    outline: 3px outset #c00;
+    background-color: #f22;
 }
 
 
@@ -133,18 +133,14 @@ button:active {
 /* Button States */
 
 .statusOn {
-    outline: 3px outset #ffcf47;
-    background-color: #ffd869;
-    -webkit-box-shadow: 01px 01px 25px 2px #ffd869 !important;
-    box-shadow: 01px 01px 25px 2px #ffd869 !important;
+    outline: 3px outset #c00;
+    background-color: #f22;
 }
 
 .pwrOn {
-    outline: 3px outset #71ea2f;
+    outline: 3px outset #44a310;
     height: 2em;
     background-color: #71ea2f;
-    -webkit-box-shadow: 01px 01px 25px 2px #66e820 !important;
-    box-shadow: 01px 01px 25px 2px #66e820 !important;
 }
 
 .pwrOff {
