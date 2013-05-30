@@ -1,60 +1,14 @@
-// Avoid `console` errors in browsers that lack a console.
-(function() {
-    var method;
-    var noop = function () {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
-
-    while (length--) {
-        method = methods[length];
-
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
-}());
-
 //  //// Index ////////////////////////////////////////////////////////////
 //  |                                                                     |
 //  | There's various lines that can be uncommented to enter 'dev mode'   |
 //  | These will print various things in the JS console.                  |
 //  |                                                                     |
-//  | Monitor Toggle - Used to turn the monitor on and off                |
 //  | Jsapi - Makes pretty graphs - https://developers.google.com/loader/‎ |
 //  | jKSPWAPIGraph - Uses the JSAPI to draw maps                         |
 //  | jKSPWAPICore - Creates measges and calls for data for the charts    |
 //  | jKSPWAPITable - Makes tables. Not the wooden kind.                  |
 //  |                                                                     |
 //  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-var monitorOn = false; // declares monitor off from the start.
-
-// Manually turns the monitor on and off.
-
-function monitorToggle(that){
-    if (monitorOn === true) { // Monitor turns off.
-        that.setAttribute("id", "toggleOn");
-        monitorOn = false;
-        $("#monitor").html('<div id="blank"/>'); // Clears the monitor.
-        $("#monitorStatus").attr("class","statusOff"); // Changes the status of the monitor button to off using a class.
-        console.log('MonitorOn is', monitorOn);
-        return;
-    };
-    if (monitorOn === false) { // Monitor turns on.
-        that.setAttribute("id", "toggleOff");
-        monitorOn = true;
-        $("#monitorStatus").attr("class","statusOn"); // See above comment, except this on turns it off.
-        console.log('MonitorOn is', monitorOn);
-        return;
-    };
-}
 
 // Jsapi
 
@@ -152,7 +106,7 @@ var sNotify = {
     createMessage: function(msg) {
         
         // Messages implimented soon^tm.
-        var messageBox = $("<div><span class=\"sNotify_close\">x</span>" + msg + "</div>").insertAfter($('#monitor').first());
+        var messageBox = $("<div><span class=\"sNotify_close\">x</span>" + msg + "</div>").prependTo($("#frame"));
         $(messageBox).addClass("sNotify_message");
         
         sNotify.enableActions(messageBox);
@@ -216,15 +170,14 @@ var sNotify = {
     
     popMessage: function(messageBox) {
         $(messageBox).css({
-            marginRight: "-290px",
             opacity: 0.2,
             display: "block"
         });
         
-        var height = parseInt($(messageBox).outerHeight()) + parseInt($(messageBox).css("margin-bottom"));
+        var height = 0;
         
         $(".sNotify_message").next().each(function() {
-            var topThis = $(this).css("top");
+            var topThis = 0;
             
             if (topThis == "auto") {
                 topThis = 0;
@@ -241,13 +194,12 @@ var sNotify = {
         });
         
         $(messageBox).animate({
-            marginRight: "20px",
             opacity: 1.0
         }, 800);
     },
     
     closeMessage: function(button) {
-        var height = parseInt($(button).parent().outerHeight()) + parseInt($(button).parent().css("margin-bottom"));
+        var height = 0;
         
         $(button).parent().nextAll(".sNotify_message").each(function() {
             var topThis = $(this).css("top");
@@ -294,12 +246,10 @@ var jKSPWAPI = {
         this.rawData = rawData;
 
         function update() {
-            if(monitorOn === true) { // Check to see if the monitor is on before updating.
-                if (rawData.length > 1) {
-                    preUpdate(rawData);
-                }
-                    readStream()
-                }   
+            if (rawData.length > 1) {
+                preUpdate(rawData);
+            }
+                readStream();
         }
 
         function sanitise(str){
