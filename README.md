@@ -1,14 +1,13 @@
-better_telemachus
+Tabless Telemachus
 =================
 
-Telemachus without 15 thousand tabs.
-
+A somewhat functional verision of Telemachus without tabs.
 
 Instalation:
 
-1) Delete GameData\Telemachus\Plugins\PluginData\Telemachus\
+1) Delete <KSP Folder>\GameData\Telemachus\Plugins\PluginData\Telemachus\
 
-2) Downlaod telemachus folder from here and place it in GameData\Telemachus\Plugins\PluginData\
+2) Downlaod telemachus folder from here and place it in <KSP Folder>\GameData\Telemachus\Plugins\PluginData\
 
 3) ???
 
