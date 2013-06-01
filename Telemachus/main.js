@@ -1,6 +1,8 @@
 //  | ## Index ##
 //  | Monitordraw - Draws the graphs on the monitor div
+//  | monitorToggle - Turns the monitor on an off.
 //  | activeGraph - Makes pretty buttons light up to the corresponding graph.
+//  | popupHelp - Creates pop up window with defintions and what not.
 
 var monitorOn = true;
 var currentGraph = 'myheart';
@@ -510,5 +512,5 @@ function activeGraph(that, type) {
 };
 
 function popupHelp() {
-	window.open('http://pastebin.com/raw.php?i=x4c4hL3T', 'Help', 'height=500px,width=550px,resizeable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes');
+	window.open('http://pastebin.com/raw.php?i=UYaHSaxd', 'Help', 'height=500px,width=600px,resizeable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes');
 };
