@@ -16,7 +16,7 @@
 }
 
 #wrapper {
-    padding: 5px 15px 5px 15px;
+    padding: 5px 5px 5px 5px;
 }
 
 #buttons{
@@ -48,7 +48,6 @@ button:active {
     font-family: 'Droid Sans Mono';
     border: 0px;
     padding: 10px;
-    margin-top: 5px;
     margin-right: 0px;
     float: left;
     line-height: 1em;
