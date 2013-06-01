@@ -57,7 +57,7 @@ google.loader.rpl({":scriptaculous":{"versions":{":1.8.3":{"uncompressed":"scrip
 google.load("visualization", "1", { packages: ["corechart"] });
 
 function initKSPWAPIGraph(APIString, postUpdate, rawData, options, divName){
-    console.log('Drawing Graph.');
+    // console.log('Drawing Graph.');
     chart = new google.visualization.LineChart(document.getElementById(divName));
     var postUpdateComposition = function(rawData, d){postUpdate(rawData, d); appendCurrentValueToLegend(rawData);};
     jKSPWAPI.initPoll(APIString, function(rawData){drawChart(rawData);}, postUpdateComposition, rawData)
@@ -259,7 +259,7 @@ var jKSPWAPI = {
 
         function readStream() {
             if (monitorOn === true){ // Check to see if the monitor is on before calling another update.
-                console.log('Reading Stream.'); // Tells you when updating if watching JS console.
+                // console.log('Reading Stream.'); // Tells you when updating if watching JS console.
                 var callback = function(response, status){
                     if (status == "success") {
                     
