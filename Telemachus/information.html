@@ -13,12 +13,13 @@
         <script src="main.js"></script>
         <script src="modernizr-2.6.2.min.js"></script>
     </head>
-    <body>        
+    <body>
         <div id="container">
             <div id="frame">
                 <div id="monitor"><div id="blank" ></div></div>
             </div>
-            <div id="buttonContainer">
+            <div id="panel">
+                <div id="wrapper">
                     <div id="buttons">
                         <button onclick="monitorDraw(this, 'alt');">ALT</button>
                         <button onclick="monitorDraw(this, 'aap');">AAP</button>
@@ -38,7 +39,8 @@
                         <button id="toggleOn" onclick="monitorToggle(this);">MTG</button>
                         <button onclick="popupHelp();">???</button>
                     </div>
-                <div id="monitorStatus" class="pwrOn">PWR</div>
+                    <div id="monitorStatus" class="pwrOn">PWR</div>
+                </div>
             </div>
         </div>
     </body>
