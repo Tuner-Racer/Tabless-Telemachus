@@ -3,6 +3,7 @@
 //  | monitorToggle - Turns the monitor on an off.
 //  | activeGraph - Makes pretty buttons light up to the corresponding graph.
 //  | popupHelp - Creates pop up window with defintions and what not.
+//  | flashCom - Makes the COM button flash.
 
 var monitorOn = true;
 var currentGraph = 'nothing';
@@ -20,7 +21,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 					title: 'Altitude Plot',
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					vAxis: {
@@ -54,7 +55,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Periapsis and Apoapsis',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -89,7 +90,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Atmospheric Density Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -151,7 +152,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Electricity Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -191,7 +192,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Fuel and Oxidiser Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -231,7 +232,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'g-force Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -271,7 +272,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Gravity Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -306,7 +307,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Orbital Inclination',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -346,7 +347,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Pressure Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -386,7 +387,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Temperature Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -421,7 +422,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Velocity Plot',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -456,7 +457,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 				], {
 					theme: 'maximized',
 					curveType: 'function',
-					backgroundColor: 'black',
+					backgroundColor: '#1F1F1F',
 					title: 'Time to Periapsis and Apoapsis',
 					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
@@ -552,4 +553,11 @@ function activeGraph(that, type) {
 
 function popupHelp() {
 	window.open('http://pastebin.com/raw.php?i=UYaHSaxd', 'Help', 'height=500px,width=600px,resizeable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes');
+};
+
+function flashCom() {
+	$('#comLink').css('background', '#FFEA61').delay(500).queue(function(d){
+		$('#comLink').css('background', '');
+		$('#comLink').dequeue();
+	});
 };

@@ -11,6 +11,7 @@
 
 #panel {
     margin-bottom: 0px;
+    outline-top: 5px solid #0A0A0A;
     background-color: #636363;
     height: 5%;
 }
@@ -64,10 +65,22 @@ button:active {
     float: right;
 }
 
+/* Communication Light */
+
+#comLink {
+    vertical-align: middle;
+    text-align: center;
+    line-height: 2em;
+    margin-right: 5px;
+    padding: 1px;
+    width: 5%;
+    float: right;
+}
+
 /* Button States */
 
 .statusOn {
-    background-color: #fbec5d;
+    background-color: #FFEA61;
 }
 
 .pwrOn {
@@ -89,7 +102,7 @@ button:active {
 
 #frame {
     height: 95%;
-    background-color: black;
+    background-color: #333333;
 }
 
 /* Fix the size of the graphs being only something like 200px tall */

@@ -260,10 +260,10 @@ var jKSPWAPI = {
 
         function readStream() {
             if (monitorOn === true){ // Check to see if the monitor is on before calling another update.
-                // console.log('Reading Stream.'); // Tells you when updating if watching JS console.
+                // console.log('Reading Stream.');
                 var callback = function(response, status){
                     if (status == "success") {
-                    
+                    	flashCom();
                         d = $.parseJSON(sanitise(response));
 
                         if (!d.p) {
@@ -273,7 +273,7 @@ var jKSPWAPI = {
                         if(d.p != previous){
                             previous = d.p;
 
-                            jKSPWAPI.generateNotificationWithCode(d.p);
+                            // jKSPWAPI.generateNotificationWithCode(d.p);
                         }
 
                         if (rawData.length > jKSPWAPI.DATA_SIZE) {
@@ -297,7 +297,7 @@ var jKSPWAPI = {
                         function(){update();}, jKSPWAPI.IDLE_UPDATE_INTERVAL);
 
                     if(!nolink){
-                        jKSPWAPI.generateNotification("No antenna found, entering broadcast mode.");
+                        // jKSPWAPI.generateNotification("No antenna found, entering broadcast mode.");
                         nolink=true;
                     }
                 });
@@ -343,7 +343,7 @@ var jKSPWAPI = {
         $.get("datalink?" + APIString, callback).error(function() {
                 jKSPWAPI.log("Command failed: " + APIString);
 
-                jKSPWAPI.generateNotificationWithCode(4);
+                // jKSPWAPI.generateNotificationWithCode(4);
             }
         );
     },
