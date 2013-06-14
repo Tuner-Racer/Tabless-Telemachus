@@ -5,13 +5,13 @@
 //  | popupHelp - Creates pop up window with defintions and what not.
 
 var monitorOn = true;
-var currentGraph = 'myheart';
+var currentGraph = 'nothing';
 
 function monitorDraw(that, type) { // 'That' is only used for console logs by the way.
 	if (monitorOn === true) { // Can't display anything without the monitor being on.
 		activeGraph(that, type);
 		if (type === 'alt') {
-			$("#monitor").html('<div id="chart_div_alt"/>');
+			$("#monitor").html('<div id="chart_div_alt"></div>');
 			//console.log(type, 'type chart div created');
 			activeGraph(that, type);
 			initKSPWAPIGraph("alt=v.altitude&terrain=v.heightFromTerrain&met=v.missionTime", function (rawData, d) {
@@ -45,7 +45,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'aap') {
-			$("#monitor").html('<div id="chart_div_aap"/>');
+			$("#monitor").html('<div id="chart_div_aap"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("pe=o.PeA&ap=o.ApA&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, d.pe, d.ap]);
@@ -80,7 +80,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'den') {
-			$("#monitor").html('<div id="chart_div_den"/>');
+			$("#monitor").html('<div id="chart_div_den"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("d=v.atmosphericDensity&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, d.d]);
@@ -115,7 +115,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'dyp') {
-			$("#monitor").html('<div id="chart_div_dyp"/>');
+			$("#monitor").html('<div id="chart_div_dyp"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("v=v.surfaceVelocity&d=v.atmosphericDensity&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, (0.5 * d.d) * Math.pow(d.v, 2)]);
@@ -135,7 +135,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'elc') {
-			$("#monitor").html('<div id="chart_div_elc"/>');
+			$("#monitor").html('<div id="chart_div_elc"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("el=r.resource[ElectricCharge]&met=v.missionTime", function (rawData, d) {
 					if (d.el == -1) {
@@ -177,7 +177,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'ful') {
-			$("#monitor").html('<div id="chart_div_ful"/>');
+			$("#monitor").html('<div id="chart_div_ful"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("fuel=r.resource[LiquidFuel]&oxidiser=r.resource[Oxidizer]&met=v.missionTime", function (rawData, d) {
 					if (isNaN(d.fuel) || isNaN(d.oxidiser)) {
@@ -217,7 +217,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'gfr') {
-			$("#monitor").html('<div id="chart_div_gfr"/>');
+			$("#monitor").html('<div id="chart_div_gfr"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("t=s.sensor[ACC]&met=v.missionTime", function (rawData, d) {
 					temp = d.t[0];
@@ -257,7 +257,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'grv') {
-			$("#monitor").html('<div id="chart_div_gvr"/>');
+			$("#monitor").html('<div id="chart_div_gvr"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("t=s.sensor[GRAV]&met=v.missionTime", function (rawData, d) {
 					temp = d.t[0];
@@ -297,7 +297,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'inc') {
-			$("#monitor").html('<div id="chart_div_inc"/>');
+			$("#monitor").html('<div id="chart_div_inc"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("in=o.inclination&aop=o.argumentOfPeriapsis&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, d. in , d.aop]);
@@ -332,7 +332,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'prs') {
-			$("#monitor").html('<div id="chart_div_prs"/>');
+			$("#monitor").html('<div id="chart_div_prs"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("t=s.sensor[PRES]&met=v.missionTime", function (rawData, d) {
 					temp = d.t[0];
@@ -372,7 +372,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'tmp') {
-			$("#monitor").html('<div id="chart_div_tmp"/>');
+			$("#monitor").html('<div id="chart_div_tmp"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("t=s.sensor[TEMP]&met=v.missionTime", function (rawData, d) {
 					temp = d.t[0];
@@ -412,7 +412,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'vel') {
-			$("#monitor").html('<div id="chart_div_vel"/>');
+			$("#monitor").html('<div id="chart_div_vel"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("o=v.orbitalVelocity&m=v.surfaceVelocity&av=v.angularVelocity&sv=v.surfaceSpeed&vs=v.verticalSpeed&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, d.m, d.vs, d.sv, d.av, d.o]);
@@ -447,7 +447,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 			//console.log(type, 'type chart running.');
 		};
 		if (type === 'tme') {
-			$("#monitor").html('<div id="chart_div_tme"/>');
+			$("#monitor").html('<div id="chart_div_tme"></div>');
 			//console.log(type, 'type chart div created');
 			initKSPWAPIGraph("pe=o.timeToPe&ap=o.timeToAp&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, d.pe, d.ap]);
@@ -479,15 +479,54 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 						position: 'bottom'
 					}
 				}, "chart_div_tme");
-			//console.log(type, 'type chart running.');
+			//console.log(type, 'type chart running.');			
 		};
+		if (type === 'map'){
+		  	$("#monitor").html('<div id="map" class="map"></div>');
+		  	var previousBody = "";
+		  	var newBody;
+		  	map = new L.KSP.Map('map', {
+		  			layers: [L.KSP.CelestialBody.KERBIN],
+		  			zoom: L.KSP.CelestialBody.KERBIN.defaultLayer.options.maxZoom,
+		  			center: [-0.1027, -74.5754],
+		  			bodyControl: false,
+		  			layerControl: true,
+		  			scaleControl: true
+		  		});
+		  	map.fitWorld();
+		  	rawData = [
+		  		[0]
+		  	];
+		  	L.Icon.Default.imagePath = 'img/';
+		  	var marker = [L.marker([0, 0]), L.marker([0, 0])];
+		  	marker[0].addTo(map);
+		  	jKSPWAPI.initPoll("longs=v.long&lat=v.lat&name=v.name&alt=v.altitude&m=v.surfaceVelocity&body=b.name", function (rawData) {}, function (rawData, d) {
+		  			if (previousBody != d.body) {
+		  				try {
+		  					newBody = L.KSP.CelestialBody[d.body.toUpperCase()];
+		  					newBody.addTo(map);
+		  					previousBody = d.body;
+		  				} catch (e) {
+		  					alert("Body not supported yet.")
+		  					previousBody = d.body;
+		  				}
+		  			}
+
+		  			if (!isNaN(d.lat) && !isNaN(d.longs)) {
+		  				marker[0].setLatLng([d.lat, d.longs]);
+		  				marker[0].bindPopup(d.name + " </br>Altitude: " + d.alt + "</br>Surface Velocity: " + d.m);
+		  				marker[0].update();
+		  			}
+
+		  		}, rawData);
+    	};
 	};
 };
 
 function monitorToggle(that, type){
     if (monitorOn === true) { // Monitor turns off.
         monitorOn = false;
-        $("#monitor").html('<div id="blank"/>'); // Clears the monitor.
+        $("#monitor").html('<div id="blank"></div>'); // Clears the monitor.
         $("#monitorStatus").attr("class","pwrOff"); // Changes the status of the monitor button to off using a class.
         $('button').removeClass('statusOn'); // Turns off buttons.
         //console.log('MonitorOn is', monitorOn);
