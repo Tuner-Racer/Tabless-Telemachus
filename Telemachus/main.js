@@ -556,7 +556,7 @@ function popupHelp() {
 };
 
 function flashCom() {
-	$('#comLink').css('background', '#FFEA61').delay(500).queue(function(d){
+	$('#comLink').css('background', '#FFEA61').delay(150).queue(function(d){
 		$('#comLink').css('background', '');
 		$('#comLink').dequeue();
 	});
