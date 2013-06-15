@@ -7,13 +7,14 @@
 
 var monitorOn = true;
 var currentGraph = 'nothing';
+var sasOn = false;
 
 function monitorDraw(that, type) { // 'That' is only used for console logs by the way.
 	if (monitorOn === true) { // Can't display anything without the monitor being on.
 		activeGraph(that, type);
 		if (type === 'alt') {
 			$("#monitor").html('<div id="chart_div_alt"></div>');
-			//console.log(type, 'type chart div created');
+			//console.log(type, 'type chart div created'); 
 			activeGraph(that, type);
 			initKSPWAPIGraph("alt=v.altitude&terrain=v.heightFromTerrain&met=v.missionTime", function (rawData, d) {
 					rawData.push([d.met, d.alt, d.terrain, d.alt - d.terrain]);}, 
@@ -521,8 +522,47 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 
 		  		}, rawData);
     	};
+    	SAS: if (type === 'sas'){
+    		if (sasOn === true){
+    			$("#monitor").html('<div id="blank"></div>');
+    			sasOn = false;
+    			return SAS;
+    		}
+    		$("#monitor").html('<div id="sasPanel"></div>');
+    		$('#sasPanel').append('<button class="sasButton" id="off">Off</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="node">Node</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="retro">Retrograde</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="pro">Prograde</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="normal">Normal</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="normal">Normal</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="radial">Radial</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="radial">Radial</button>');
+    		return sasOn;
+    	};
 	};
 };
+
+function command(command) {
+  jKSPWAPI.call("ret=" + command, function (d) {
+    if (d.ret == 5) {
+      sNotify.addToQueue("Mechjeb not found.");
+    } else if (d.ret > 0) {
+      jKSPWAPI.generateNotificationWithCode(d.ret);
+    }
+  });
+}
+
+function execute() {
+  jKSPWAPI.call(
+    "ret=mj.surface2[" + $('#heading').val() + "," + $('#pitch').val() + "," + $('#roll').val() + "]",
+    function (d) {
+      if (d.ret == 5) {
+        sNotify.addToQueue("Mechjeb not found.");
+      } else if (d.ret > 0) {
+        jKSPWAPI.generateNotificationWithCode(d.ret);
+      }
+    });
+}
 
 function monitorToggle(that, type){
     if (monitorOn === true) { // Monitor turns off.
