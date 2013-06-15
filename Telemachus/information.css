@@ -95,14 +95,42 @@ button:active {
     height: 2em;
 }
 
+/* Where the graphs are displayed */
+
 #monitor {
     width: 100%;
     height: 100%;
 }
 
+/* Container for #monitor */
+
 #frame {
     height: 95%;
     background-color: #1F1F1F;
+}
+
+/* Notifications */
+
+#notification {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    margin-left: -200px !important;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2em;
+    height: 2em;
+    width: 400px;
+    margin: auto;
+    z-index: 100;
+    background-color: #7A0000;
+    color: white;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#close {
+    color: #E0E0E0;
 }
 
 /* Fix the size of the graphs being only something like 200px tall */

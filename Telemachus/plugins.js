@@ -105,9 +105,7 @@ var sNotify = {
     },
     
     createMessage: function(msg) {
-        
-        // Messages implimented soon^tm.
-        var messageBox = $("<div><span class=\"sNotify_close\">x</span>" + msg + "</div>").prependTo($("#frame"));
+        var messageBox = $("<div id=\"notification\"><span class=\"sNotify_close\" id=\"close\">x </span>!!! " + msg + " !!!</div>").prependTo($("#frame"));
         $(messageBox).addClass("sNotify_message");
         
         sNotify.enableActions(messageBox);
@@ -122,7 +120,6 @@ var sNotify = {
             
             var messageBox = sNotify.createMessage(sNotify.queue[0]);
             sNotify.popMessage(messageBox);
-            
             sNotify.queue.splice(0,1);
             
         }
@@ -171,7 +168,6 @@ var sNotify = {
     
     popMessage: function(messageBox) {
         $(messageBox).css({
-            opacity: 0.2,
             display: "block"
         });
         
@@ -185,23 +181,11 @@ var sNotify = {
             }
             
             var newTop = parseInt(topThis) + parseInt(height);
-            
-            $(this).animate({
-                top: newTop + "px"
-            }, {
-                queue: false,
-                duration: 600
-            });
         });
-        
-        $(messageBox).animate({
-            opacity: 1.0
-        }, 800);
     },
     
     closeMessage: function(button) {
         var height = 0;
-        
         $(button).parent().nextAll(".sNotify_message").each(function() {
             var topThis = $(this).css("top");
             
@@ -210,13 +194,6 @@ var sNotify = {
             }
             
             var newTop = parseInt(topThis) - parseInt(height);
-            
-            $(this).animate({
-                top: newTop + "px"
-            }, {
-                queue: false,
-                duration: 300
-            });
         });
         
         $(button).parent().hide(200, function() {
@@ -273,7 +250,7 @@ var jKSPWAPI = {
                         if(d.p != previous){
                             previous = d.p;
 
-                            // jKSPWAPI.generateNotificationWithCode(d.p);
+                            jKSPWAPI.generateNotificationWithCode(d.p);
                         }
 
                         if (rawData.length > jKSPWAPI.DATA_SIZE) {
@@ -297,7 +274,7 @@ var jKSPWAPI = {
                         function(){update();}, jKSPWAPI.IDLE_UPDATE_INTERVAL);
 
                     if(!nolink){
-                        // jKSPWAPI.generateNotification("No antenna found, entering broadcast mode.");
+                        jKSPWAPI.generateNotification("No antenna found, entering broadcast mode.");
                         nolink=true;
                     }
                 });
@@ -343,7 +320,7 @@ var jKSPWAPI = {
         $.get("datalink?" + APIString, callback).error(function() {
                 jKSPWAPI.log("Command failed: " + APIString);
 
-                // jKSPWAPI.generateNotificationWithCode(4);
+               jKSPWAPI.generateNotificationWithCode(4);
             }
         );
     },
