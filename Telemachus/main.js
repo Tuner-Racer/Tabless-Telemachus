@@ -601,7 +601,7 @@ function activeGraph(that, type) {
 };
 
 function popupHelp() {
-	window.open('http://pastebin.com/raw.php?i=UYaHSaxd', 'Help', 'height=500px,width=600px,resizeable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes');
+	window.open('http://pastebin.com/raw.php?i=fMnsYmbh', 'Help', 'height=500px,width=600px,resizeable=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes');
 };
 
 function flashCom() {
