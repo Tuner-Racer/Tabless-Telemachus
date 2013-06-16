@@ -530,16 +530,21 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 
 		  		}, rawData);
     	};
-		if (type === 'sas'){
+		if (type === 'sas' && sasOn == false){
     		$("#monitor").html('<div id="sasPanel"></div>');
-    		$('#sasPanel').append('<button class="sasButton" id="off" onclick="">Off</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="node" onclick="">Node</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="retro" onclick="">Retrograde</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="pro" onclick="">Prograde</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="normal" onclick="">Normal</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="normal" onclick="">Normal</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="radial" onclick="">Radial</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="radial" onclick="">Radial</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="off" onclick="command(\'mj.smartassoff\');">Off</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="node" onclick="command(\'mj.node\');">Node</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="retro" onclick="command(\'mj.retrograde\');">Retrograde</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="pro" onclick="command(\'mj.prograde\');">Prograde</button>');
+    		$('#sasPanel').append('<br><br><button class="sasButton" id="normalplus" onclick="command(\'mj.normalplus\');">Normal +</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="normalminus" onclick="command(\'mj.normalminus\');">Normal -</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="radialplus" onclick="command(\'mj.radialplus\');">Radial +</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="radialminus" onclick="command(\'mj.radialminus\');">Radial -</button>');
+    		$('#sasPanel').append('<div id="sliders"></div>')
+    		$('#sliders').append('<br><label for="pitch">Pitch</label><input id="pitch" type="range" name="slider" value="90" min="0" max="360" />');
+    		$('#sliders').append('<br><label for="heading">Heading</label><input id="heading" type="range" name="slider" value="90" min="0" max="360" data-highlight="false" />');
+    		$('#sliders').append('<br><label for="roll">Roll</label><input id="roll" type="range" name="slider" value="90" min="0" max="360" data-highlight="false"/>');
+    		$('#sliders').append('<button class="sasButton" id="execute" onclick="execute();">Execute</button>');
     		return sasOn;
     	};
 	};
@@ -548,7 +553,7 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 function command(command) {
   jKSPWAPI.call("ret=" + command, function (d) {
     if (d.ret == 5) {
-      sNotify.addToQueue("Mechjeb not found.");
+      sNotify.addToQueue("404: Mechjeb not found.");
     } else if (d.ret > 0) {
       jKSPWAPI.generateNotificationWithCode(d.ret);
     }
@@ -560,7 +565,7 @@ function execute() {
     "ret=mj.surface2[" + $('#heading').val() + "," + $('#pitch').val() + "," + $('#roll').val() + "]",
     function (d) {
       if (d.ret == 5) {
-        sNotify.addToQueue("Mechjeb not found.");
+        sNotify.addToQueue("404: Mechjeb not found.");
       } else if (d.ret > 0) {
         jKSPWAPI.generateNotificationWithCode(d.ret);
       }
@@ -578,6 +583,7 @@ function monitorToggle(that, type){
     };
     if (monitorOn === false) { // Monitor turns on.
         monitorOn = true;
+        sasOn = false;
         $("#monitorStatus").attr("class","pwrOn");
         //console.log('MonitorOn is', monitorOn);
         return;
