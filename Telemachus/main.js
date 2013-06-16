@@ -125,8 +125,16 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 					['Mission Time', 'Dynamic Pressure']
 				], {
 					title: 'Dynamic Pressure Plot',
+					theme: 'maximized',
+					curveType: 'function',
+					backgroundColor: '#1F1F1F',
+					textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+					titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 					hAxis: {
 						minorGridlines: {color: '#eee',},
+						gridlines: {color: '#fff',},
+						textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+						titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
 						title: 'Mission Time (s)'
 					},
 					legend: {
@@ -522,21 +530,16 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 
 		  		}, rawData);
     	};
-    	SAS: if (type === 'sas'){
-    		if (sasOn === true){
-    			$("#monitor").html('<div id="blank"></div>');
-    			sasOn = false;
-    			return SAS;
-    		}
+		if (type === 'sas'){
     		$("#monitor").html('<div id="sasPanel"></div>');
-    		$('#sasPanel').append('<button class="sasButton" id="off">Off</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="node">Node</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="retro">Retrograde</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="pro">Prograde</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="normal">Normal</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="normal">Normal</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="radial">Radial</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="radial">Radial</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="off" onclick="">Off</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="node" onclick="">Node</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="retro" onclick="">Retrograde</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="pro" onclick="">Prograde</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="normal" onclick="">Normal</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="normal" onclick="">Normal</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="radial" onclick="">Radial</button>');
+    		$('#sasPanel').append('<button class="sasButton" id="radial" onclick="">Radial</button>');
     		return sasOn;
     	};
 	};

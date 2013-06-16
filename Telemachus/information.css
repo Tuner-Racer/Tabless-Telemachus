@@ -98,8 +98,9 @@ button:active {
 /* Where the graphs are displayed */
 
 #monitor {
-    width: 100%;
-    height: 100%;
+    margin: auto;
+    width: 99.5%;
+    height: 99.5%;
 }
 
 /* Container for #monitor */
