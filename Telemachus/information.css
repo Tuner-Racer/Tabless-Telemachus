@@ -140,6 +140,7 @@ button:active {
     background: red;
     color: white;
     float: right !important;
+    margin-top: -5%;
 }
 
 /* Notifications */
