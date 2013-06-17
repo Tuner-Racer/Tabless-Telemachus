@@ -531,16 +531,16 @@ function monitorDraw(that, type) { // 'That' is only used for console logs by th
 		  		}, rawData);
     	};
 		if (type === 'sas' && sasOn == false){
-    		$("#monitor").html('<div id="sasPanel"></div>');
-    		$('#sasPanel').append('<button class="sasButton" id="off" onclick="command(\'mj.smartassoff\');">Off</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="node" onclick="command(\'mj.node\');">Node</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="retro" onclick="command(\'mj.retrograde\');">Retrograde</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="pro" onclick="command(\'mj.prograde\');">Prograde</button>');
-    		$('#sasPanel').append('<br><br><button class="sasButton" id="normalplus" onclick="command(\'mj.normalplus\');">Normal +</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="normalminus" onclick="command(\'mj.normalminus\');">Normal -</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="radialplus" onclick="command(\'mj.radialplus\');">Radial +</button>');
-    		$('#sasPanel').append('<button class="sasButton" id="radialminus" onclick="command(\'mj.radialminus\');">Radial -</button>');
-    		$('#sasPanel').append('<div id="sliders"></div>')
+    		$("#monitor").html('<div id="sasContainer"></div>');
+    		$('#sasContainer').append('<button class="sasButton" id="off" onclick="command(\'mj.smartassoff\');">Off</button>');
+    		$('#sasContainer').append('<button class="sasButton" id="node" onclick="command(\'mj.node\');">Node</button>');
+    		$('#sasContainer').append('<button class="sasButton" id="retro" onclick="command(\'mj.retrograde\');">Retrograde</button>');
+    		$('#sasContainer').append('<button class="sasButton" id="pro" onclick="command(\'mj.prograde\');">Prograde</button>');
+    		$('#sasContainer').append('<br><br><button class="sasButton" id="normalplus" onclick="command(\'mj.normalplus\');">Normal +</button>');
+    		$('#sasContainer').append('<button class="sasButton" id="normalminus" onclick="command(\'mj.normalminus\');">Normal -</button>');
+    		$('#sasContainer').append('<button class="sasButton" id="radialplus" onclick="command(\'mj.radialplus\');">Radial +</button>');
+    		$('#sasContainer').append('<button class="sasButton" id="radialminus" onclick="command(\'mj.radialminus\');">Radial -</button>');
+    		$('#sasContainer').append('<div id="sliders"></div>')
     		$('#sliders').append('<br><label for="pitch">Pitch</label><input id="pitch" type="range" name="slider" value="90" min="0" max="360" />');
     		$('#sliders').append('<br><label for="heading">Heading</label><input id="heading" type="range" name="slider" value="90" min="0" max="360" data-highlight="false" />');
     		$('#sliders').append('<br><label for="roll">Roll</label><input id="roll" type="range" name="slider" value="90" min="0" max="360" data-highlight="false"/>');

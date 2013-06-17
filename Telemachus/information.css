@@ -43,7 +43,7 @@ button:active {
 
 /* All buttons */
 
-#buttons button, #monitorStatus, #comLink, .blank, #sasPanel button{
+#buttons button, #monitorStatus, #comLink, .blank, #sasContainer button{
     border: 0px;
     vertical-align: middle;
     text-align: center;
@@ -112,17 +112,21 @@ button:active {
 
 /* SAS container */
 
-#sasPanel {
+#sasContainer {
     margin: 0 auto;
-    width: 35% !important;
+    width: 50% !important;
     padding: 2px !important;
     color: white;
+    background: black;
+    height: 25% !important;
 }
 
-#sasPanel button {
+/* SAS's buttons */
+
+#sasContainer button {
     float: left;
     padding: 5px;
-    width: 100px;
+    width: 24%;
 }
 
 /* Sliders for the SAS */
@@ -132,6 +136,13 @@ button:active {
     width: 100%;
     padding-top: 50px;
 }
+
+#sliders input {
+    width: 50%;
+    margin-left: 50px;
+}
+
+/* Execute button on the SAS Panel */
 
 #execute {
     width: 25% !important;
