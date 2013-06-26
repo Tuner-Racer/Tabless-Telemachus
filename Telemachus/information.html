@@ -15,11 +15,12 @@
     </head>
     <body>
         <div id="container">
-            <div id="frame">
+            <div id="frame"> <!-- Wrapper for the graphs -->
                 <div id="monitor"><div id="blank" ></div></div>
             </div>
+            <div id="hoverspot"></div>
             <div id="panel">
-                <div id="wrapper">
+                <div id="wrapper"> <!-- Seperates the buttons from status lights -->
                     <div id="buttons">
                         <button onclick="monitorDraw(this, 'alt');">ALT</button>
                         <button onclick="monitorDraw(this, 'aap');">AAP</button>
@@ -39,7 +40,8 @@
                         <button id="toggleOn" onclick="monitorToggle(this);">MTG</button>
                         <button onclick="popupHelp();">???</button>
                     </div>
-                    <div id="monitorStatus" class="pwrOn">PWR</div>
+                    <!-- Status Lights -->
+                    <div id="monitorStatus" class="pwrOn">PWR</div> 
                     <div id="comLink" class="pwrOff">COM</div>
                 </div>
             </div>
