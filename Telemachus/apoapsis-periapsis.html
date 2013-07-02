@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Telemachus - Periapsis and Apoapsis</title>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script src="plugins.js"></script>
+        <link rel="stylesheet" href="information.css">
+    <script type="text/javascript">
+      google.setOnLoadCallback(onLoad);
+
+      function onLoad() {
+      initKSPWAPIGraph("pe=o.PeA&ap=o.ApA&met=v.missionTime", function (rawData, d) {
+          rawData.push([d.met, d.pe, d.ap]);
+        }, [
+          ['Mission Time', 'Periapsis', 'Apoapsis']
+        ], {
+          theme: 'maximized',
+          curveType: 'function',
+          backgroundColor: 'black',
+          title: 'Periapsis and Apoapsis',
+          textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          vAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Height (m)'
+          },
+          hAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Mission Time (s)'
+          },
+          legend: {
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            position: 'bottom'
+          }
+        }, 'chart_div');
+      }
+   </script>
+  </head>
+  <body>
+    <div style="width:100%;height:100%">
+      <div id="chart_div" class="full" style="width:100%;height:100%;"></div>
+    </div>
+  </body>
+</html>

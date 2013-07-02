@@ -236,49 +236,47 @@ var jKSPWAPI = {
         }
 
         function readStream() {
-            if (monitorOn === true){ // Check to see if the monitor is on before calling another update.
-                // console.log('Reading Stream.');
-                var callback = function(response, status){
-                    if (status == "success") {
-                    	flashCom();
-                        d = $.parseJSON(sanitise(response));
+            // console.log('Reading Stream.');
+            var callback = function(response, status){
+                if (status == "success") {
+                	flashCom();
+                    d = $.parseJSON(sanitise(response));
 
-                        if (!d.p) {
-                            postUpdate(rawData, d);
-                        }
-
-                        if(d.p != previous){
-                            previous = d.p;
-
-                            jKSPWAPI.generateNotificationWithCode(d.p);
-                        }
-
-                        if (rawData.length > jKSPWAPI.DATA_SIZE) {
-                            rawData.splice(1, jKSPWAPI.SPLICE_SIZE);
-                        }
-
-                        nolink = false;
-                        t = setTimeout(function(){
-                            update();}, jKSPWAPI.UPDATE_INTERVAL);  
+                    if (!d.p) {
+                        postUpdate(rawData, d);
                     }
-                    else {
-                        document.writeln(response);
-                    }
-                };
 
-                $.get(APIString, callback).error(function() {
-                    rawData.length = 1;
-                    rawData.push(new Array(rawData[0].length+1).join('0').split('').map(parseFloat));
-                    
-                    t = setTimeout(
-                        function(){update();}, jKSPWAPI.IDLE_UPDATE_INTERVAL);
+                    if(d.p != previous){
+                        previous = d.p;
 
-                    if(!nolink){
-                        jKSPWAPI.generateNotification("No antenna found, entering broadcast mode.");
-                        nolink=true;
+                        jKSPWAPI.generateNotificationWithCode(d.p);
                     }
-                });
+
+                    if (rawData.length > jKSPWAPI.DATA_SIZE) {
+                        rawData.splice(1, jKSPWAPI.SPLICE_SIZE);
+                    }
+
+                    nolink = false;
+                    t = setTimeout(function(){
+                        update();}, jKSPWAPI.UPDATE_INTERVAL);  
+                }
+                else {
+                    document.writeln(response);
+                }
             };
+
+            $.get(APIString, callback).error(function() {
+                rawData.length = 1;
+                rawData.push(new Array(rawData[0].length+1).join('0').split('').map(parseFloat));
+                
+                t = setTimeout(
+                    function(){update();}, jKSPWAPI.IDLE_UPDATE_INTERVAL);
+
+                if(!nolink){
+                    jKSPWAPI.generateNotification("No antenna found, entering broadcast mode.");
+                    nolink=true;
+                }
+            });
         }
     },
 

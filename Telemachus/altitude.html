@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Telemachus - Altitude</title>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script src="plugins.js"></script>
+        <link rel="stylesheet" href="information.css">
+    <script type="text/javascript">
+      google.setOnLoadCallback(onLoad);
+
+      function onLoad() {
+      initKSPWAPIGraph("alt=v.altitude&terrain=v.heightFromTerrain&met=v.missionTime", function (rawData, d) {
+          rawData.push([d.met, d.alt, d.terrain, d.alt - d.terrain]);}, 
+          [['Mission Time', 'Altitude', 'Height from Terrain', 'Terrain Height']], {
+          title: 'Altitude Plot',
+          theme: 'maximized',
+          curveType: 'function',
+          backgroundColor: 'black',
+          textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          vAxis: {
+            minorGridlines: {color: '#eee',},           
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Height (m)'
+          },
+          hAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Mission Time (s)'
+          },
+          legend: {
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            position: 'bottom'
+          }
+        }, 'chart_div');}
+    </script>
+  </head>
+  <body>
+  <div style="height:100%;width:100%;">
+    <div id="chart_div" style="height:100%;width:100%;"></div>
+  </div>
+  </body>
+</html>

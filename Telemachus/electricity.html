@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Telemachus - Electricity</title>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script src="plugins.js"></script>
+        <link rel="stylesheet" href="information.css">
+    <script type="text/javascript">
+      google.setOnLoadCallback(onLoad);
+
+      function onLoad() {
+      initKSPWAPIGraph("el=r.resource[ElectricCharge]&met=v.missionTime", function (rawData, d) {
+          if (d.el == -1) {
+            rawData.length = 1;
+            rawData.push([0, 0]);
+          } else {
+            rawData.push([d.met, d.el]);
+          }
+        },
+
+        [
+          ['Mission Time', 'Electrcity']
+        ], {
+          theme: 'maximized',
+          curveType: 'function',
+          backgroundColor: 'black',
+          title: 'Electricity Plot',
+          textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          vAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Amount'
+          },
+          hAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Mission Time (s)'
+          },
+          legend: {
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            position: 'bottom'
+          }
+        }, "chart_div");
+        }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" class="full"></div>
+  </body>
+</html>

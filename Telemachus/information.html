@@ -13,32 +13,41 @@
         <script src="main.js"></script>
         <script src="modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body onload="onload();">
         <div id="container">
             <div id="frame"> <!-- Wrapper for the graphs -->
-                <div id="monitor"><div id="blank" ></div></div>
+                <div id="monitor">
+                    <iframe id="graphOne" src=""></iframe>
+                    <iframe id="graphTwo" src=""></iframe>
+                    <iframe id="graphThree" src=""></iframe>
+                </div>
             </div>
             <div id="hoverspot"></div>
             <div id="panel">
                 <div id="wrapper"> <!-- Seperates the buttons from status lights -->
                     <div id="buttons">
-                        <button onclick="monitorDraw(this, 'alt');">ALT</button>
-                        <button onclick="monitorDraw(this, 'aap');">AAP</button>
-                        <button onclick="monitorDraw(this, 'den');">DEN</button>
-                        <button onclick="monitorDraw(this, 'dyp');">DYP</button>
-                        <button onclick="monitorDraw(this, 'gfr');">GFR</button>
-                        <button onclick="monitorDraw(this, 'grv');">GRV</button>
-                        <button onclick="monitorDraw(this, 'inc');">INC</button>
-                        <button onclick="monitorDraw(this, 'prs');">PRS</button>
-                        <button onclick="monitorDraw(this, 'tmp');">TMP</button>
-                        <button onclick="monitorDraw(this, 'tme');">TME</button>
-                        <button onclick="monitorDraw(this, 'vel');">VEL</button>
-                        <button onclick="monitorDraw(this, 'ful');">FUL</button>
-                        <button onclick="monitorDraw(this, 'elc');">ELC</button>
+                        <button onclick="monitorDraw(this, 'altitude');">ALT</button>
+                        <button onclick="monitorDraw(this, 'apoapsis-periapsis');">AAP</button>
+                        <button onclick="monitorDraw(this, 'density');">DEN</button>
+                        <button onclick="monitorDraw(this, 'dynamic-pressure');">DYP</button>
+                        <button onclick="monitorDraw(this, 'g-force');">GFR</button>
+                        <button onclick="monitorDraw(this, 'gravity');">GRV</button>
+                        <button onclick="monitorDraw(this, 'inclination-aop');">INC</button>
+                        <button onclick="monitorDraw(this, 'pressure');">PRS</button>
+                        <button onclick="monitorDraw(this, 'temperature');">TMP</button>
+                        <button onclick="monitorDraw(this, 'time-apoapsis-periapsis');">TME</button>
+                        <button onclick="monitorDraw(this, 'velocity');">VEL</button>
+                        <button onclick="monitorDraw(this, 'fuel-oxidiser');">FUL</button>
+                        <button onclick="monitorDraw(this, 'electricity');">ELC</button>
                         <button onclick="monitorDraw(this, 'map');">MAP</button>
-                        <button onclick="monitorDraw(this, 'sas');">SAS</button>
+                        <button onclick="monitorDraw(this, 'flight-control');">SAS</button>
                         <button id="toggleOn" onclick="monitorToggle(this);">MTG</button>
                         <button onclick="popupHelp();">???</button>
+                        <select id="polymug">
+                            <option value="graphOne" selected="selected">Graph One</option>
+                            <option value="graphTwo">Graph Two</option>
+                            <option value="graphThree">Graph Three</option>
+                        </select>
                     </div>
                     <!-- Status Lights -->
                     <div id="monitorStatus" class="pwrOn">PWR</div> 

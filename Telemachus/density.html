@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Telemachus - Atmospheric Density</title>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script src="plugins.js"></script>
+        <link rel="stylesheet" href="information.css">
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(onLoad);
+
+      function onLoad() {
+           initKSPWAPIGraph("d=v.atmosphericDensity&met=v.missionTime", function (rawData, d) {
+          rawData.push([d.met, d.d]);
+        }, [
+          ['Mission Time', 'Atmospheric Density']
+        ], {
+          theme: 'maximized',
+          curveType: 'function',
+          backgroundColor: 'black',
+          title: 'Atmospheric Density Plot',
+          textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+          vAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Density'
+          },
+          hAxis: {
+            minorGridlines: {color: '#eee',},
+            gridlines: {color: '#fff',},
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            titleTextStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            title: 'Mission Time (s)'
+          },
+          legend: {
+            textStyle: {color: 'white', fontName: 'Droid Sans Mono'},
+            position: 'bottom'
+          }
+        }, "chart_div");
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" class="full"></div>
+  </body>
+</html>
